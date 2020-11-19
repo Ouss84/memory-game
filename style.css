@@ -1,0 +1,14 @@
+body{
+    background-color: beige;
+    width: 100%;
+    position: absolute;
+}
+.main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-area: auto;
+}
+img{
+    width: 150px;
+    margin:2rem;
+}
