@@ -4,14 +4,13 @@
 
 body {
   margin: 0;
-  background: radial-gradient(#38413f, #a56336);
 }
 html {
   height: 100vh;
 }
 .card-container {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
   grid-gap: 30px;
   margin: 50px;
   justify-content: center;
@@ -40,9 +39,8 @@ html {
 
 .card {
   position: relative;
-  
   height: 175px;
-  width: 150px;
+  width: 125px;
 }
 .card-back {
   position: absolute;
