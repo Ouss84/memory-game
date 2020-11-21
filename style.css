@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  background:linear-gradient(#edc4b3,#c38e70);
 }
 html {
   height: 100vh;
@@ -41,6 +42,7 @@ html {
   position: relative;
   height: 175px;
   width: 125px;
+ 
 }
 .card-back {
   position: absolute;
@@ -53,4 +55,11 @@ html {
 .card-back-img {
   height: 100%;
   width: 100%;
+}
+
+/* hover effect */
+.card:hover {
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
 }
