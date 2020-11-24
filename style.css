@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   height: 100vh;
   background: linear-gradient(#edc4b3, #c38e70);
@@ -22,26 +23,27 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
-.game-info {
-  display: inline-block;
-}
+
 .card {
   margin: 5px;
   width: calc(33.33% - 10px);
   height: calc(50% - 10px);
   position: relative;
+  
   cursor: pointer;
   transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 
 .card:active {
   transform: scale(0.97);
-  transition: transform .2s;
+  transition: transform 0.5s;
 }
-.card.is-flipped{
+.card.is-flipped {
   transform: rotateY(180deg);
-
 }
 .front-face,
 .back-face {
@@ -49,86 +51,12 @@ body {
   height: 100%;
   padding: 15px;
   position: absolute;
+  backface-visibility: hidden;
+  
 }
-
-/* * {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background:linear-gradient(#edc4b3,#c38e70);
-}
-html {
-  height: 100vh;
-}
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-gap: 30px;
-  margin: 50px;
-  justify-content: center;
-  margin-bottom: 50px;
-  perspective: 600px;
-}
-
-.game-info {
-  grid-column: 1/-1;
-  display: flex;
-  justify-content: space-between;
-  margin: 30px;
-}
-.title {
-  font-size: 5rem;
-  font-weight: 500;
-  font-style: italic;
-  color: #143642;
-  text-align: center;
-}
-.info {
-  font-size: 3rem;
-  font-weight: 300;
-  font-style: italic;
-  color: #143642;
-}
-.card.is-flipped{
+.front-face {
   transform: rotateY(180deg);
 }
 
-.card {
-  position: relative;
-  height: 175px;
-  width: 125px;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-  
-}
-.card__face{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  line-height: 260px;
-  color:black;
-  text-align: center;
-  font-weight: bold;
-  font-size: 40px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
 
 
-.card__face--front{
-  background: blue;
-}
-.card__face--back{
- 
-  transform: rotateY (180deg);
-  background: red;
-} */
-
-/* hover effect */
-/* .card:hover {
-  cursor: pointer;
-  transition: all .2s ease-in-out;
-  transform: scale(1.1);
-} */
