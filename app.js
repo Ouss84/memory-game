@@ -9,13 +9,13 @@ function flipCard (){
  this.classList.add('is-flipped');
 
  if (!isCardFlipped)
- //first click
+ //first flipped card
  {isCardFlipped = true;
  cardOne = this;
  } else {
+     //second flipped card
      isCardFlipped =false;
      cardTwo = this;
-     console.log ({cardOne,cardTwo})
  }
 }
 
