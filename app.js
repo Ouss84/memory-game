@@ -16,6 +16,20 @@ function flipCard (){
      //second flipped card
      isCardFlipped =false;
      cardTwo = this;
+
+     //checking if the front-faces matches
+     if (cardOne.dataset.image === cardTwo.dataset.image){
+         //if they match
+         cardOne.removeEventListener('click', flipCard);
+         cardTwo.removeEventListener('click', flipCard);
+         console.log(cardOne);
+     } else {
+         //if they don't match
+         setTimeout(()=>{
+             cardOne.classList.remove('is-flipped');
+             cardTwo.classList.remove('is-flipped');
+         }, 1000);
+     }
  }
 }
 
