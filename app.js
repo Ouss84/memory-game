@@ -6,8 +6,11 @@ let cardOne, cardTwo;
 let disableUnflippedCards =false;
 
 //defining flipCard function
+shuffleDeck();
 function flipCard (){
+   
   if (disableUnflippedCards)  return;
+  if (this === cardOne) return ;
  this.classList.add('is-flipped');
 
  if (!isCardFlipped)
@@ -20,6 +23,7 @@ function flipCard (){
      cardTwo = this;
 
      cardsMatch();
+     
  }
 }
 
@@ -32,16 +36,32 @@ if (cardOne.dataset.image === cardTwo.dataset.image){
     //if they match
     cardOne.removeEventListener('click', flipCard);
     cardTwo.removeEventListener('click', flipCard);
-    console.log(cardOne);
+    resetGuess();
 } else {
     //if they don't match
     disableUnflippedCards = true;
     setTimeout(()=>{
         cardOne.classList.remove('is-flipped');
         cardTwo.classList.remove('is-flipped');
-        disableUnflippedCards = false;
+       resetGuess();
     }, 1000);
 }
+}
+
+//defining the resetGuess function
+function resetGuess () {
+    isCardFlipped = false;
+    disableUnflippedCards =false;
+    cardOne = null;
+    cardTwo = null;
+}
+
+//defining shuffleDeck function
+function shuffleDeck (){
+    cards.forEach(card => {
+        let randomOr = Math.floor(Math.random()*6)
+        card.style.order = randomOr;
+    })
 }
 
 //looping through all the cards
