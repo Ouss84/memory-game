@@ -3,9 +3,11 @@ const cards = document.querySelectorAll(".card");
 //declaring global variables
 let isCardFlipped = false;
 let cardOne, cardTwo;
+let disableUnflippedCards =false;
 
 //defining flipCard function
 function flipCard (){
+  if (disableUnflippedCards)  return;
  this.classList.add('is-flipped');
 
  if (!isCardFlipped)
@@ -17,20 +19,29 @@ function flipCard (){
      isCardFlipped =false;
      cardTwo = this;
 
-     //checking if the front-faces matches
-     if (cardOne.dataset.image === cardTwo.dataset.image){
-         //if they match
-         cardOne.removeEventListener('click', flipCard);
-         cardTwo.removeEventListener('click', flipCard);
-         console.log(cardOne);
-     } else {
-         //if they don't match
-         setTimeout(()=>{
-             cardOne.classList.remove('is-flipped');
-             cardTwo.classList.remove('is-flipped');
-         }, 1000);
-     }
+     cardsMatch();
  }
+}
+
+
+//defining cardsMatching function
+function cardsMatch () {
+
+//checking if the front-faces matches
+if (cardOne.dataset.image === cardTwo.dataset.image){
+    //if they match
+    cardOne.removeEventListener('click', flipCard);
+    cardTwo.removeEventListener('click', flipCard);
+    console.log(cardOne);
+} else {
+    //if they don't match
+    disableUnflippedCards = true;
+    setTimeout(()=>{
+        cardOne.classList.remove('is-flipped');
+        cardTwo.classList.remove('is-flipped');
+        disableUnflippedCards = false;
+    }, 1000);
+}
 }
 
 //looping through all the cards
