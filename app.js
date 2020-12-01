@@ -8,7 +8,6 @@ let disableUnflippedCards =false;
 //defining flipCard function
 shuffleDeck();
 function flipCard (){
-   
   if (disableUnflippedCards)  return;
   if (this === cardOne) return ;
  this.classList.add('is-flipped');
@@ -21,16 +20,13 @@ function flipCard (){
      //second flipped card
      isCardFlipped =false;
      cardTwo = this;
-
      cardsMatch();
-     
  }
 }
 
 
 //defining cardsMatching function
 function cardsMatch () {
-
 //checking if the front-faces matches
 if (cardOne.dataset.image === cardTwo.dataset.image){
     //if they match
@@ -63,7 +59,12 @@ function shuffleDeck (){
         card.style.order = randomOr;
     })
 }
-
+//defining hideCards function
+function hideCards (){
+    cards.forEach (card => 
+        card.classList.remove('is-flipped')
+    
+)}
 //looping through all the cards
 cards.forEach (card => card.addEventListener('click',flipCard));
 
